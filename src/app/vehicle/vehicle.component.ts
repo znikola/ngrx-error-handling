@@ -6,7 +6,6 @@ import { Store } from '@ngrx/store';
 import * as fromActions from './store/actions/index';
 
 import { VehicleState } from './store';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: `app-vehicle`,
