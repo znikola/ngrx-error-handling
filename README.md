@@ -1,14 +1,14 @@
 # TODO:
 
-1. How to make a feature module without actually defining a slice of state?
-2. Test production build
-3. Add tests for the metareducer
+1. Test production build
+2. Extract stacktrace from the error in the effect
+3. Inject a store in GlobalErrorHandlingModule, where the store wasn't actually defined?
 
 # Ngrx Error Handling
 
 A showcase app for handling errors that can occur in ngrx's effects.
 
-Clicking on `Get Vehicle` will throw 404 error, that's going to be caught and logged to the console, despite the fact that `vehicle.reducer.ts` doesn't react to `LoadVehicleFail` action.
+Clicking on `Get Vehicle` will throw 404 error, that's caught and logged to the console, despite the fact that `vehicle.reducer.ts` doesn't react to `LoadVehicleFail` action.
 
 ## Development server
 

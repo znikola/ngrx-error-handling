@@ -13,6 +13,7 @@ import { environment } from '../environments/environment';
 import { UserModule } from './user/user.module';
 import { VehicleModule } from './vehicle/vehicle.module';
 import { GlobalErrorHandlingModule } from './global-error-handling/global-error-handling.module';
+import { FilmModule } from './film/film.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,10 +25,10 @@ import { GlobalErrorHandlingModule } from './global-error-handling/global-error-
 
     UserModule,
     VehicleModule,
+    FilmModule,
 
     GlobalErrorHandlingModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

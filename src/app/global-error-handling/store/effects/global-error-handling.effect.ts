@@ -4,7 +4,7 @@ import { Effect, Actions } from '@ngrx/effects';
 
 import { Observable, of } from 'rxjs';
 import { filter, switchMap } from 'rxjs/operators';
-import { ErrorAction } from '../actions/global-error-handling.action';
+import { ErrorAction } from '../global-error-handling.model';
 
 @Injectable()
 export class GlobalErrorHandlingEffect {
