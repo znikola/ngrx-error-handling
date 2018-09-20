@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { reducers, metaReducers } from './reducers/index';
 import { environment } from '../environments/environment';
 import { UserModule } from './user/user.module';
+import { VehicleModule } from './vehicle/vehicle.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +21,8 @@ import { UserModule } from './user/user.module';
     EffectsModule.forRoot([]),
     environment.production ? [] : StoreDevtoolsModule.instrument(),
 
-    UserModule
+    UserModule,
+    VehicleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

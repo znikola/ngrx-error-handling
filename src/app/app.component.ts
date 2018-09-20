@@ -3,8 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-    <div>app works</div>
     <app-user></app-user>
+    <app-vehicle></app-vehicle>
   `
 })
 export class AppComponent {

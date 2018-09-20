@@ -9,20 +9,20 @@ import { EffectsModule } from '@ngrx/effects';
 import { effects } from './store/effects/index';
 import { getReducers } from './store/reducers/index';
 
-import { UserComponent } from './user.component';
+import { VehicleComponent } from './vehicle.component';
 
-import { UserService } from './services/user.service';
+import { VehicleService } from './services/vehicle.service';
 
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule,
     ReactiveFormsModule,
-    StoreModule.forFeature('users', getReducers()),
+    StoreModule.forFeature('vehicles', getReducers()),
     EffectsModule.forFeature(effects)
   ],
-  providers: [UserService],
-  declarations: [UserComponent],
-  exports: [UserComponent]
+  providers: [VehicleService],
+  declarations: [VehicleComponent],
+  exports: [VehicleComponent]
 })
-export class UserModule {}
+export class VehicleModule {}

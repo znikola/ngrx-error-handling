@@ -10,7 +10,6 @@ import { UserState } from './store/reducers/user.reducer';
 @Component({
   selector: 'app-user',
   template: `
-    <div>app-user works</div>
     <label>
       Enter a user ID:
       <input type="text" [formControl]="userId">
@@ -19,7 +18,7 @@ import { UserState } from './store/reducers/user.reducer';
   `
 })
 export class UserComponent {
-  userId = new FormControl();
+  userId = new FormControl(1);
 
   constructor(private store: Store<UserState>) {}
 
