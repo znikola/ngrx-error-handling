@@ -18,15 +18,10 @@ import { Observable } from 'rxjs';
     <button (click)="loadVehicle()" type="submit">Get Vehicle</button>
   `
 })
-export class VehicleComponent implements OnInit {
+export class VehicleComponent {
   vehicleId = new FormControl(1);
-  // vehicle$: Observable<any>
 
   constructor(private store: Store<VehicleState>) {}
-
-  ngOnInit() {
-    // this.vehicle$ = this.store.select
-  }
 
   loadVehicle(): void {
     this.store.dispatch(new fromActions.LoadVehicle(this.vehicleId.value));
