@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
-import { metaReducers } from './reducers/index';
+import { effects } from './effects/index';
 
 @NgModule({
-  imports: [CommonModule, StoreModule.forFeature('errors', {}, { metaReducers })],
+  imports: [CommonModule, EffectsModule.forFeature(effects)],
   declarations: []
 })
 export class GlobalErrorHandlingModule {}
