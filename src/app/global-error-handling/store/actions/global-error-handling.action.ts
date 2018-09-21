@@ -1,4 +1,4 @@
-import { ErrorAction } from '../global-error-handling.model';
+import { ErrorAction } from '../../models/global-error-handling.model';
 
 export const GLOBAL_ERROR_ACTION = '[ERROR] Global Error Action';
 

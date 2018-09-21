@@ -1,9 +1,6 @@
 # TODO:
 
-1. Test production build
-2. Extract stacktrace from the error in the effect
-3. Write some unit tests
-4. Flatten store's structure
+1. Flatten store's structure
 
 # NGRX Error Handling
 
