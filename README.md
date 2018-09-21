@@ -2,13 +2,19 @@
 
 1. Test production build
 2. Extract stacktrace from the error in the effect
-3. Inject a store in GlobalErrorHandlingModule, where the store wasn't actually defined?
+3. Write some unit tests
 
 # Ngrx Error Handling
 
-A showcase app for handling errors that can occur in ngrx's effects.
+A showcase app for handling **silent** errors that can occur in ngrx's effects.
 
-Clicking on `Get Vehicle` will throw 404 error, that's caught and logged to the console, despite the fact that `vehicle.reducer.ts` doesn't react to `LoadVehicleFail` action.
+Clicking on the `Get Vehicle` button (with the default value in the corresponding input field) will throw a 404 error, which is caught and logged to the console, despite the fact that `vehicle.reducer.ts` doesn't react to `LoadVehicleFail` action.
+
+Clicking on the `Cause error` button will throw a plain JavaScript `Error`, which should be caught by a custom `ErrorHandler`.
+
+## Install
+
+To install, run `yarn install` or `npm install`.
 
 ## Development server
 

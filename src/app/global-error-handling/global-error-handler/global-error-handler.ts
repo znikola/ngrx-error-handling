@@ -10,7 +10,6 @@ export class GlobalErrorHandler implements ErrorHandler {
   constructor(private injector: Injector) {}
 
   handleError(error: any): void {
-    console.log(`error`, error);
     const store = this.injector.get<Store<fromRoot.State>>(Store);
     store.dispatch(new fromActions.GlobalErrorAction(error));
   }
