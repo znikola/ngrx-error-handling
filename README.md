@@ -3,8 +3,9 @@
 1. Test production build
 2. Extract stacktrace from the error in the effect
 3. Write some unit tests
+4. Flatten store's structure
 
-# Ngrx Error Handling
+# NGRX Error Handling
 
 A showcase app for handling **silent** errors that can occur in ngrx's effects.
 

@@ -13,7 +13,7 @@ export class GlobalErrorHandlingEffect {
   handleError$: Observable<any> = this.actions$.pipe(
     filter((action: ErrorAction) => Boolean(action.error)),
     switchMap((action: ErrorAction) => {
-      console.log(`Error caught:`, action.error);
+      console.error(`Error caught:`, action.error);
       // TODO: send errors to the server
 
       return of({});
