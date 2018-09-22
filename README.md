@@ -10,6 +10,15 @@ Clicking on the `Get Vehicle` button (with the default value in the correspondin
 
 Clicking on the `Cause error` button will throw a plain JavaScript `Error`, which should be caught by a custom `ErrorHandler`.
 
+## Features
+
+TODO: write a more detailed description of the each feature
+
+- Handle silent failures
+- Posible to have custom error handling per action
+- Option to skip sending errors to the server
+- GlobalErrorAction - convenient when there's no specific action to dispatch
+
 ## Install
 
 To install, run `yarn install` or `npm install`.

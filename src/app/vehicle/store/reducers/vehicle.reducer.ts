@@ -18,7 +18,7 @@ export function reducer(state = initialState, action: fromActions.VehicleActions
       return { ...state, loading: true };
     }
 
-    // Notice there's no _FAIL action handled
+    // Notice that there's no LOAD_VEHICLE_FAIL case
 
     case fromActions.LOAD_VEHICLE_SUCCESS: {
       return {

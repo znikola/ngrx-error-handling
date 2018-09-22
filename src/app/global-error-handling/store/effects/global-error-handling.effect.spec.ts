@@ -10,6 +10,7 @@ import { hot } from 'jasmine-marbles';
 
 import { GlobalErrorHandlingEffect } from './global-error-handling.effect';
 import * as fromActions from '../actions/index';
+import { GlobalError } from '../../models/global-error-handling.model';
 
 class ErrorHandlerMock {
   handleError(): void {}
@@ -38,15 +39,28 @@ describe('GlobalErrorHandlingEffect', () => {
     spyOn(errorHandler, 'handleError').and.callThrough();
   });
 
-  it(`should call 'handleError' method and NOT dispatch an action`, () => {
+  it(`should call 'handleError' method`, () => {
     const anError = new Error('an error');
-    actions$ = hot('-a', { a: new fromActions.GlobalErrorAction(anError) });
+    const action = new fromActions.GlobalErrorAction({ error: anError });
+    actions$ = hot('-a', { a: action });
     globalErrorHandlingEffect.handleError$.subscribe(_ => {
-      expect(errorHandler.handleError).toHaveBeenCalledWith({
+      expect(errorHandler.handleError).toHaveBeenCalledWith(<GlobalError>{
         error: anError,
-        actionType: fromActions.GLOBAL_ERROR_ACTION,
-        actionPayload: undefined
+        actionType: fromActions.GLOBAL_ERROR_ACTION
       });
+    });
+  });
+
+  it(`should NOT call 'handleError' method`, () => {
+    const anError = new Error('an error');
+    const action = new fromActions.GlobalErrorAction({
+      error: anError,
+      actionPayload: 'random payload',
+      skipErrorHandling: true
+    });
+    actions$ = hot('-a', { a: action });
+    globalErrorHandlingEffect.handleError$.subscribe(_ => {
+      expect(errorHandler.handleError).not.toHaveBeenCalled();
     });
   });
 });

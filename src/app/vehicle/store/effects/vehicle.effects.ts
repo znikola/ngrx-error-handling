@@ -12,15 +12,35 @@ import { VehicleService } from '../../services/vehicle.service';
 @Injectable()
 export class VehicleEffect {
   @Effect()
-  vehicleService$: Observable<any> = this.actions$.pipe(
+  loadVehicle$: Observable<any> = this.actions$.pipe(
     ofType(fromActions.LOAD_VEHICLE),
     map((action: fromActions.LoadVehicle) => action.id),
     switchMap((id: number) => {
       return this.vehicleService.loadCart(id).pipe(
         map((vehicle: any) => new fromActions.LoadVehicleSuccess(vehicle)),
-        catchError(error => of(new fromActions.LoadVehicleFail(error)))
+        catchError(error =>
+          of(
+            new fromActions.LoadVehicleFail({
+              error
+            })
+          )
+        )
       );
     })
+  );
+
+  @Effect()
+  addVehicle$: Observable<any> = this.actions$.pipe(
+    ofType(fromActions.ADD_VEHICLE),
+    switchMap(_ =>
+      of(
+        new fromActions.AddVehicleFail({
+          error: new Error('Adding failed'),
+          actionPayload: 'Random payload',
+          skipErrorHandling: true
+        })
+      )
+    )
   );
 
   constructor(private actions$: Actions, private vehicleService: VehicleService) {}

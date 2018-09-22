@@ -11,10 +11,18 @@ import { VehicleState } from './store';
   selector: `app-vehicle`,
   template: `
     <label>
-      Enter a vehicle ID:
+      Enter a vehicle ID (will cause failure):
       <input type="text" [formControl]="vehicleId">
     </label>
     <button (click)="loadVehicle()" type="submit">Get Vehicle</button>
+
+    <br/>
+
+    <label>
+      Enter a new vehicle (will cause failure that's going not going to be logged):
+      <input type="text">
+    </label>
+    <button (click)="newVehicle()" type="button">Add New Vehicle</button>
   `
 })
 export class VehicleComponent {
@@ -24,5 +32,9 @@ export class VehicleComponent {
 
   loadVehicle(): void {
     this.store.dispatch(new fromActions.LoadVehicle(this.vehicleId.value));
+  }
+
+  newVehicle() {
+    this.store.dispatch(new fromActions.AddVehicle({}));
   }
 }
