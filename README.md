@@ -67,10 +67,6 @@ There might be a case when we want to skip the error handling for a certain acti
 
 The check is performed in `global-error-handling.effect.ts`, and if the `skipErrorHandling` is raised, the `GlobalErrorHandler` won't be called.
 
-### GlobalErrorAction
-
-Convenient when there's no specific failure action to dispatch.
-
 ## Install
 
 To install, run `yarn install` or `npm install`.

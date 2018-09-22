@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# TODO: script doesn't fail if there's a compilation error in tests
+# TODO: script doesn't fail if the build fails
+
 # If using a different setup (i.e. the root folder is 'projects'), change this accordingly
 ROOT_SOURCE_FOLDER="src"
 
@@ -51,5 +54,7 @@ echo "Validating formatting"
 runPrettier
 echo "Running tests"
 runTests
+echo "Running production build"
+yarn build --prod
 echo "Done, all checks passed."
 echo "--------------------------------------"

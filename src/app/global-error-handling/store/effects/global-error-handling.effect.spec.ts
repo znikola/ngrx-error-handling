@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 import { hot } from 'jasmine-marbles';
 
 import { GlobalErrorHandlingEffect } from './global-error-handling.effect';
-import * as fromActions from '../actions/index';
+import * as fromUserActions from '../../../user/store/actions/index';
 import { GlobalError } from '../../models/global-error-handling.model';
 
 class ErrorHandlerMock {
@@ -41,19 +41,19 @@ describe('GlobalErrorHandlingEffect', () => {
 
   it(`should call 'handleError' method`, () => {
     const anError = new Error('an error');
-    const action = new fromActions.GlobalErrorAction({ error: anError });
+    const action = new fromUserActions.LoadUserFail({ error: anError });
     actions$ = hot('-a', { a: action });
     globalErrorHandlingEffect.handleError$.subscribe(_ => {
       expect(errorHandler.handleError).toHaveBeenCalledWith(<GlobalError>{
         error: anError,
-        actionType: fromActions.GLOBAL_ERROR_ACTION
+        actionType: fromUserActions.LOAD_USER_FAIL
       });
     });
   });
 
   it(`should NOT call 'handleError' method`, () => {
     const anError = new Error('an error');
-    const action = new fromActions.GlobalErrorAction({
+    const action = new fromUserActions.LoadUserFail({
       error: anError,
       actionPayload: 'random payload',
       skipErrorHandling: true

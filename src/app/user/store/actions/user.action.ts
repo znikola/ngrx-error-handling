@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 
-import { ErrorAction } from '../../../global-error-handling/models/global-error-handling.model';
+import { ErrorAction, GlobalError } from '../../../global-error-handling/models/global-error-handling.model';
 
 export const LOAD_USER = '[USER] Load User';
 export const LOAD_USER_SUCCESS = '[USER] Load User Success';
@@ -18,7 +18,7 @@ export class LoadUserSuccess implements Action {
 
 export class LoadUserFail implements ErrorAction {
   readonly type = LOAD_USER_FAIL;
-  constructor(public error: Error, public payload?: any) {}
+  constructor(public globalError: GlobalError) {}
 }
 
 export type UserActions = LoadUser | LoadUserSuccess | LoadUserFail;
