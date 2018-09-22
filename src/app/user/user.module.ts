@@ -9,7 +9,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { effects } from './store/effects/index';
 import { getReducers } from './store/reducers/index';
 
-import { UserComponent } from './user.component';
+import { UserComponent } from './components/user.component';
 
 import { UserService } from './services/user.service';
 

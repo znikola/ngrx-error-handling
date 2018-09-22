@@ -7,26 +7,19 @@ import { map, switchMap, catchError } from 'rxjs/operators';
 
 import * as fromActions from '../actions/index';
 
-import { VehicleService } from '../../services/vehicle.service';
-
 @Injectable()
 export class VehicleEffect {
   @Effect()
   loadVehicle$: Observable<any> = this.actions$.pipe(
     ofType(fromActions.LOAD_VEHICLE),
     map((action: fromActions.LoadVehicle) => action.id),
-    switchMap((id: number) => {
-      return this.vehicleService.loadCart(id).pipe(
-        map((vehicle: any) => new fromActions.LoadVehicleSuccess(vehicle)),
-        catchError(error =>
-          of(
-            new fromActions.LoadVehicleFail({
-              error
-            })
-          )
-        )
-      );
-    })
+    switchMap(_ =>
+      of(
+        new fromActions.LoadVehicleFail({
+          error: new Error('Silent error')
+        })
+      )
+    )
   );
 
   @Effect()
@@ -43,5 +36,5 @@ export class VehicleEffect {
     )
   );
 
-  constructor(private actions$: Actions, private vehicleService: VehicleService) {}
+  constructor(private actions$: Actions) {}
 }

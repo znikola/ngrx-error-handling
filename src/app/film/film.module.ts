@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FilmComponent } from './film.component';
+import { FilmComponent } from './components/film.component';
 
 @NgModule({
   imports: [CommonModule],

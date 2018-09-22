@@ -3,15 +3,15 @@ import { FormControl } from '@angular/forms';
 
 import { Store } from '@ngrx/store';
 
-import * as fromActions from './store/actions/index';
+import * as fromActions from '../store/actions';
 
-import { VehicleState } from './store';
+import { VehicleState } from '../store';
 
 @Component({
   selector: `app-vehicle`,
   template: `
     <label>
-      Enter a vehicle ID (will cause failure):
+      Enter a vehicle ID (will cause a silent failure):
       <input type="text" [formControl]="vehicleId">
     </label>
     <button (click)="loadVehicle()" type="submit">Get Vehicle</button>

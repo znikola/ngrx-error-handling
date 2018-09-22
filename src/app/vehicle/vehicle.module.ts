@@ -9,9 +9,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { effects } from './store/effects/index';
 import { getReducers } from './store/reducers/index';
 
-import { VehicleComponent } from './vehicle.component';
-
-import { VehicleService } from './services/vehicle.service';
+import { VehicleComponent } from './components/vehicle.component';
 
 @NgModule({
   imports: [
@@ -21,7 +19,6 @@ import { VehicleService } from './services/vehicle.service';
     StoreModule.forFeature('vehicles', getReducers()),
     EffectsModule.forFeature(effects)
   ],
-  providers: [VehicleService],
   declarations: [VehicleComponent],
   exports: [VehicleComponent]
 })

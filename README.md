@@ -14,10 +14,17 @@ Clicking on the `Cause error` button will throw a plain JavaScript `Error`, whic
 
 TODO: write a more detailed description of the each feature
 
-- Handle silent failures
-- Posible to have custom error handling per action
-- Option to skip sending errors to the server
-- GlobalErrorAction - convenient when there's no specific action to dispatch
+### Handle silent failures
+
+> Silent failures will happen when a failure action is dispatched (usually from an effect) to which no reducer reacts. In this way, the failure will fail silently.
+
+> To test this, just comment out `GlobalErrorHandlingModule` from `app.module.ts`' `imports`.
+
+### Posible to have custom error handling per action
+
+### Option to skip sending errors to the server
+
+### GlobalErrorAction - convenient when there's no specific action to dispatch
 
 ## Install
 

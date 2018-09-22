@@ -12,6 +12,4 @@ import { Component } from '@angular/core';
     <app-film></app-film>
   `
 })
-export class AppComponent {
-  title = 'ngrx-error-handling';
-}
+export class AppComponent {}
