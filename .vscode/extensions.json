@@ -22,6 +22,8 @@
     "wesbos.theme-cobalt2",
     // VSCode live share
     "ms-vsliveshare.vsliveshare",
-    "ms-vsliveshare.vsliveshare-audio"
+    "ms-vsliveshare.vsliveshare-audio",
+    // sorts import statements
+    "nikolazaric.es6-typescript-import-sorter",
   ]
 }
