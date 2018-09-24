@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# TODO: script doesn't fail if there's a compilation error in tests
-# TODO: script doesn't fail if the build fails
+set -e
+set -o pipefail
 
 # If using a different setup (i.e. the root folder is 'projects'), change this accordingly
 ROOT_SOURCE_FOLDER="src"

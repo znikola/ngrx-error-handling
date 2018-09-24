@@ -18,7 +18,7 @@ export class UserEffect {
     switchMap((id: number) => {
       return this.userService.loadUser(id).pipe(
         map((user: any) => new fromActions.LoadUserSuccess(user)),
-        catchError(error => of(new fromActions.LoadUserFail(error)))
+        catchError((error: any) => of(new fromActions.LoadUserFail({ error })))
       );
     })
   );
