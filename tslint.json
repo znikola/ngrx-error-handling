@@ -35,6 +35,7 @@
     "no-string-throw": true,
     "no-switch-case-fall-through": true,
     "no-unnecessary-initializer": true,
+    "no-unused-variable": true,
     "no-unused-expression": true,
     "no-use-before-declare": true,
     "no-var-keyword": true,

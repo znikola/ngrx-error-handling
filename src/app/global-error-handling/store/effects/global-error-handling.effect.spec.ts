@@ -10,7 +10,7 @@ import { hot } from 'jasmine-marbles';
 
 import { GlobalErrorHandlingEffect } from './global-error-handling.effect';
 import * as fromUserActions from '../../../user/store/actions/index';
-import { GlobalError } from '../../models/global-error-handling.model';
+import { GlobalError, Severity } from '../../models/global-error-handling.model';
 
 class ErrorHandlerMock {
   handleError(): void {}
@@ -40,7 +40,11 @@ describe('GlobalErrorHandlingEffect', () => {
   });
 
   it(`should call 'handleError' method`, () => {
-    const anError = new Error('an error');
+    const anError = {
+      severity: Severity.Critical,
+      message: 'an error',
+      error: 'an error'
+    };
     const action = new fromUserActions.LoadUserFail({ error: anError });
     actions$ = hot('-a', { a: action });
     globalErrorHandlingEffect.handleError$.subscribe(_ => {
@@ -52,11 +56,8 @@ describe('GlobalErrorHandlingEffect', () => {
   });
 
   it(`should NOT call 'handleError' method`, () => {
-    const anError = new Error('an error');
     const action = new fromUserActions.LoadUserFail({
-      error: anError,
-      actionPayload: 'random payload',
-      skipErrorHandling: true
+      actionPayload: 'random payload'
     });
     actions$ = hot('-a', { a: action });
     globalErrorHandlingEffect.handleError$.subscribe(_ => {

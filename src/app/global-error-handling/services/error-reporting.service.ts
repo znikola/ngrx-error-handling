@@ -9,6 +9,7 @@ export class ErrorReportingService {
   constructor(private http: HttpClient) {}
 
   report(globalError: GlobalError): Observable<any> {
+    console.log('Sending an error to the server: ', globalError);
     // TODO: send the 'error' to the server
     return this.http.post('', globalError);
   }

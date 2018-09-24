@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 import { Store } from '@ngrx/store';
@@ -19,7 +19,7 @@ import { VehicleState } from '../store';
     <br/>
 
     <label>
-      Enter a new vehicle (will cause failure that's going not going to be logged):
+      Enter a new vehicle (will cause a failure that's NOT going to be logged):
       <input type="text">
     </label>
     <button (click)="newVehicle()" type="button">Add New Vehicle</button>

@@ -3,9 +3,10 @@ import { Injectable } from '@angular/core';
 import { Effect, Actions, ofType } from '@ngrx/effects';
 
 import { Observable, of } from 'rxjs';
-import { map, switchMap, catchError } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 
 import * as fromActions from '../actions/index';
+import { Severity } from '../../../global-error-handling/models/global-error-handling.model';
 
 @Injectable()
 export class VehicleEffect {
@@ -16,7 +17,11 @@ export class VehicleEffect {
     switchMap(_ =>
       of(
         new fromActions.LoadVehicleFail({
-          error: new Error('Silent error')
+          error: {
+            severity: Severity.Critical,
+            message: 'Silent error',
+            error: new Error('Silent error')
+          }
         })
       )
     )
@@ -28,9 +33,11 @@ export class VehicleEffect {
     switchMap(_ =>
       of(
         new fromActions.AddVehicleFail({
-          error: new Error('Adding failed'),
-          actionPayload: 'Random payload',
-          skipErrorHandling: true
+          error: {
+            severity: Severity.Warning,
+            message: 'Adding failed'
+          },
+          actionPayload: 'Random payload'
         })
       )
     )
